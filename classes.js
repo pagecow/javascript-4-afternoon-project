@@ -70,15 +70,10 @@ class Manager extends Employee {
   }
 
   fire(index){
-    for(var prop in this.reports){
-      if(prop === index){
-        delete this.reports[prop]
-      }
-    }
-  }
+    this.reports.splice(index, 1)
+  } 
 }
 
-// ----------------------- help
 
 
 
@@ -105,7 +100,54 @@ class Manager extends Employee {
   Call your new class ProgressiveManager
 */
 
-//Code Here
+
+class ProgressiveManager extends Manager {
+  constructor(first_name, last_name, email, age, reports, title, bonus){
+    super(first_name, last_name, email, age, reports),
+    this.title = 'Not a manager',
+    this.bonus = 0;
+  }
+
+  hire(employee){
+    super.hire(employee)
+    this.gettingPromoted(this.reports)
+  }
+
+  fire(index){
+    super.fire(index)
+    this.gettingPromoted(this.reports)
+    this.bonus += 100
+  }
+
+  gettingPromoted(reports){
+    console.log(this.title)
+    if(reports.length === 0){
+      return this.title = 'Not a manager'
+    } else if(reports.length >= 1 && reports.length <= 3){
+      return this.title = 'Barely Manager'
+    } else if(reports.length >= 4 && reports.length <= 10){
+      return this.title = 'Mostly Manager'
+    } else if(reports.length >= 11 && reports.length <= 50){
+      return this.title = 'Manager'
+    } else if(reports.length >= 51 && reports.length <= 100){
+      return this.title = 'Manager Plus'
+    } else if(reports.length >= 101){
+      return this.title = 'Bestest Manager'
+    }
+  }
+
+
+  gettingBonus(){
+
+  }
+
+}
+
+
+
+
+
+
 
 
 
