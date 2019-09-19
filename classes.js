@@ -76,9 +76,6 @@ class Manager extends Employee {
 
 
 
-
-
-
 ////////// PROBLEM 3 //////////
 
 /*
@@ -135,13 +132,8 @@ class ProgressiveManager extends Manager {
       return this.title = 'Bestest Manager'
     }
   }
-
-
-  gettingBonus(){
-
-  }
-
 }
+
 
 
 
